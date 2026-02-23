@@ -22,7 +22,7 @@ do
     else 
        IP_address=$(aws ec2 describe-instances \
                --instance-ids $instance_id \
-               --query 'Reservations[].Instance[].PrivateIpAddress' \
+               --query 'Reservations[].Instances[].PrivateIpAddress' \
                --output text)
         record_name="$instance.$domain_name" #instancename.jarugula.online
     fi
