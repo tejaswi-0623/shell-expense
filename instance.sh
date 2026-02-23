@@ -31,15 +31,15 @@ do
     fi
       echo "IP address is $IP_address"
  
- aws route53 change-resource-record-sets \
-    --hosted-zone-id $zone_id \
-    --change-batch '
-    { 
-        "Comment": "Updating record", 
-        "Changes": [
-            {
-            "Action": "UPSERT",
-            "ResourceRecordSet": {
+       aws route53 change-resource-record-sets \
+         --hosted-zone-id $zone_id \
+        --change-batch '
+         { 
+             "Comment": "Updating record", 
+             "Changes": [
+               {
+             "Action": "UPSERT",
+             "ResourceRecordSet": {
                 "Name": "'$record_name'",
                 "Type": "A",
                 "TTL": 1,
@@ -48,11 +48,11 @@ do
                     "Value": "'$IP_address'"
                 }
                 ]
+               }
             }
-            }
-        ]
-    }
-    '
+         ]
+       } 
+       '
       echo "record updated for $instance"
 done
     
