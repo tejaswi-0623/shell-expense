@@ -27,5 +27,6 @@ do
         record_name="$instance.$domain_name" #instancename.jarugula.online
     fi
       echo "IP address is $IP_address"
+done
     
   
