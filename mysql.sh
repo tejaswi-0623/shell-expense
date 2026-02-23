@@ -34,5 +34,5 @@ validate $? "eanble and start mysql"
 mysql_secure_installation --set-root-pass ExpenseApp@1
 validate $? "setting root password"
 
-mysql -h $mysql -u root -p<password>
+mysql -h <host-address> -u root -pExpenseAPP@!
 validate $? "loading data"
