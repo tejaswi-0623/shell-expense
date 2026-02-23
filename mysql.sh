@@ -31,7 +31,6 @@ systemctl enable mysqld &>>$logs_file
 systemctl start mysqld
 validate $? "eanble and start mysql"
 
-rm -rf ExpenseApp@1
 
 mysql_secure_installation --set-root-pass ExpenseApp@1 #setting the password for root user
 validate $? "setting root password"
