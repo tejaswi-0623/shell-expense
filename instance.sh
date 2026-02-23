@@ -4,6 +4,7 @@ sg_id="sg-09de3392916ee8cce"
 ami_id="ami-0220d79f3f480ecf5"
 zone_id="Z08829441IZSXZL32T650" #domain hosted zone id
 domain_name="jarugula.online"
+project_name="expense"
 
 for instance in $@ #can create instances from command line i.e, during runtime and instance is vairable here
 do
@@ -20,7 +21,7 @@ do
                --instance-ids $instance_id \
                --query 'Reservations[].Instances[].PublicIpAddress' \
                --output text)
-     record_name="$domain_name" #will create record as jarugula.online
+     record_name="$project_name.$domain_name" #will create record as expense.jarugula.online
   else
      IP_address=$(aws ec2 describe-instances \
             --instance-ids "$instance_id" \
