@@ -31,8 +31,10 @@ systemctl enable mysqld &>>$logs_file
 systemctl start mysqld
 validate $? "eanble and start mysql"
 
+rm -rf ExpenseApp@1
+
 mysql_secure_installation --set-root-pass ExpenseApp@1
 validate $? "setting root password"
 
-mysql -h <host-address> -u root -pExpenseAPP@!
+mysql -h $mysql_host -u root -pExpenseAPP@!
 validate $? "loading data"
