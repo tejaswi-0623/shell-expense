@@ -46,6 +46,8 @@ fi
 mkdir -p /app &>>$logs_file
 validate $? "creating app directory"
 
+rm -rf /app/*
+VALIDATE $? "Removing existing code"
 
 curl -o /tmp/backend.zip https://expense-joindevops.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 validate $? "downloading backend code"
@@ -75,6 +77,8 @@ validate $? "loading data"
 
 systemctl restart backend &>>$logs_file
 validate $? "resarting backend"
+
+
 
 
 
