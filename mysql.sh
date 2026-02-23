@@ -38,5 +38,3 @@ validate $? "setting root password"
 
 #mysql -h $mysql_host -u root -pExpenseAPP@!
 #validate $? "loading data"
-mysql -u root -p"${mysql_root_password}" -e "SHOW DATABASES;" &>>"$logs_file"
-validate $? "mysql root login verification"
