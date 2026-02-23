@@ -6,7 +6,7 @@ logs_file="$logs_folder/$0.log"
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
-mysql_host="mysql.jarugula.online"
+
 
 mkdir -p $logs_folder
 
@@ -33,8 +33,7 @@ validate $? "eanble and start mysql"
 
 rm -rf ExpenseApp@1
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 #setting the password for root user
 validate $? "setting root password"
 
-#mysql -h $mysql_host -u root -pExpenseAPP@!
-#validate $? "loading data"
+
