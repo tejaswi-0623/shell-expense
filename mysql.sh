@@ -5,7 +5,7 @@ logs_folder="/var/log/shell-script"
 logs_file="$logs_folder/$0.log"
 R="\e[31m"
 G="\e[32m"
-N="\e0m"
+N="\e[0m"
 mysql_host="mysql.jarugula.online"
 
 mkdir -p $logs_folder
@@ -36,5 +36,7 @@ rm -rf ExpenseApp@1
 mysql_secure_installation --set-root-pass ExpenseApp@1
 validate $? "setting root password"
 
-mysql -h $mysql_host -u root -pExpenseAPP@!
-validate $? "loading data"
+#mysql -h $mysql_host -u root -pExpenseAPP@!
+#validate $? "loading data"
+mysql -u root -p"${mysql_root_password}" -e "SHOW DATABASES;" &>>"$logs_file"
+validate $? "mysql root login verification"
