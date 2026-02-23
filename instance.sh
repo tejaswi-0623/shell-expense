@@ -5,6 +5,7 @@ ami_id="ami-0220d79f3f480ecf5"
 zone_id="Z08829441IZSXZL32T650" #domain hosted zone id
 domain_name="jarugula.online"
 
+
 for instance in $@
 do
   instance_id=$(aws ec2 run-instances \
@@ -20,7 +21,7 @@ do
                --instance-ids $instance_ids \
                --query 'Reservations[].Instances[].PublicIpAddress' \
                --output text)
-         record_name="expense.$domain_name"
+         record_name="$expense.$domain_name"
     else 
        IP_address=$(aws ec2 describe-instances \
                --instance-ids $instance_id \
