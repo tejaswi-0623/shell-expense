@@ -6,7 +6,7 @@ logs_file="$logs_folder/$0.log"
 R="\e[31m"
 G="\e[32m"
 N="\e0m"
-mongodb_host="mongodb.jarugula.online"
+mysql_host="mysql.jarugula.online"
 
 if [ $userid -ne 0 ]; then
    echo -e "$R please run the script with root user access $N" |tee -a $logs_file
@@ -32,5 +32,5 @@ validate $? "eanble and start mysql"
 mysql_secure_installation --set-root-pass ExpenseApp@1
 validate $? "setting root password"
 
-mysql -h $mongodb_host -u root -p<password>
+mysql -h $mysql -u root -p<password>
 validate $? "loading data"
