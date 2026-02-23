@@ -21,7 +21,7 @@ do
                --instance-ids $instance_ids \
                --query 'Reservations[].Instances[].PublicIpAddress' \
                --output text)
-         record_name="$expense.$domain_name"
+         record_name="$domain_name"
     else 
        IP_address=$(aws ec2 describe-instances \
                --instance-ids $instance_id \
